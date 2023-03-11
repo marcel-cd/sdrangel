@@ -201,6 +201,7 @@ bool RemoteTCPInputGui::handleMessage(const Message& message)
              {RemoteTCPProtocol::LOCAL_INPUT, "LocalInput"},
              {RemoteTCPProtocol::PERSEUS, "Perseus"},
              {RemoteTCPProtocol::PLUTO_SDR, "PlutoSDR"},
+             {RemoteTCPProtocol::ZCU_ADRV9009, "Zcuadrv9009"},
              {RemoteTCPProtocol::REMOTE_INPUT, "RemoteInput"},
              {RemoteTCPProtocol::REMOTE_TCP_INPUT, "RemoteTCPInput"},
              {RemoteTCPProtocol::SDRPLAY_1, "SDRplay1"},
@@ -416,6 +417,9 @@ const RemoteTCPInputGui::DeviceGains RemoteTCPInputGui::m_sdrplayV3Gains({m_sdrp
 const RemoteTCPInputGui::DeviceGains::GainRange RemoteTCPInputGui::m_plutoGainRange("Gain", 1, 77, 1);
 const RemoteTCPInputGui::DeviceGains RemoteTCPInputGui::m_plutoGains({m_plutoGainRange}, true, false);
 
+const RemoteTCPInputGui::DeviceGains::GainRange RemoteTCPInputGui::m_zcuadrv9009GainRange("Gain", 1, 77, 1);
+const RemoteTCPInputGui::DeviceGains RemoteTCPInputGui::m_zcuadrv9009Gains({m_zcuadrv9009GainRange}, true, false);
+
 const RemoteTCPInputGui::DeviceGains::GainRange RemoteTCPInputGui::m_usrpGainRange("Gain", 0, 70, 1);
 const RemoteTCPInputGui::DeviceGains RemoteTCPInputGui::m_usrpGains({m_usrpGainRange}, true, false);
 
@@ -439,6 +443,7 @@ const QHash<RemoteTCPProtocol::Device, const RemoteTCPInputGui::DeviceGains *> R
     {RemoteTCPProtocol::SDRPLAY_V3_RSPDUO, &m_sdrplayV3Gains},
     {RemoteTCPProtocol::SDRPLAY_V3_RSPDX, &m_sdrplayV3Gains},
     {RemoteTCPProtocol::PLUTO_SDR, &m_plutoGains},
+    {RemoteTCPProtocol::ZCU_ADRV9009, &m_zcuadrv9009Gains},
     {RemoteTCPProtocol::USRP, &m_usrpGains},
     {RemoteTCPProtocol::XTRX, &m_xtrxGains}
 };

@@ -82,6 +82,7 @@
         <file>webapi/doc/swagger/include/Perseus.yaml</file>
         <file>webapi/doc/swagger/include/PERTester.yaml</file>
         <file>webapi/doc/swagger/include/PlutoSdr.yaml</file>
+        <file>webapi/doc/swagger/include/Zcuadrv9009.yaml</file>
         <file>webapi/doc/swagger/include/Preferences.yaml</file>
         <file>webapi/doc/swagger/include/Preset.yaml</file>
         <file>webapi/doc/swagger/include/RadioAstronomy.yaml</file>

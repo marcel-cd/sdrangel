@@ -1,6 +1,6 @@
 /**
  * SDRangel
- * This is the web REST/JSON API of SDRangel SDR software. SDRangel is an Open Source Qt5/OpenGL 3.0+ (4.3+ in Windows) GUI and server Software Defined Radio and signal analyzer in software. It supports Airspy, BladeRF, HackRF, LimeSDR, PlutoSDR, RTL-SDR, SDRplay RSP1 and FunCube    ---   Limitations and specifcities:    * In SDRangel GUI the first Rx device set cannot be deleted. Conversely the server starts with no device sets and its number of device sets can be reduced to zero by as many calls as necessary to /sdrangel/deviceset with DELETE method.   * Preset import and export from/to file is a server only feature.   * Device set focus is a GUI only feature.   * The following channels are not implemented (status 501 is returned): ATV and DATV demodulators, Channel Analyzer NG, LoRa demodulator   * The device settings and report structures contains only the sub-structure corresponding to the device type. The DeviceSettings and DeviceReport structures documented here shows all of them but only one will be or should be present at a time   * The channel settings and report structures contains only the sub-structure corresponding to the channel type. The ChannelSettings and ChannelReport structures documented here shows all of them but only one will be or should be present at a time    --- 
+ * This is the web REST/JSON API of SDRangel SDR software. SDRangel is an Open Source Qt5/OpenGL 3.0+ (4.3+ in Windows) GUI and server Software Defined Radio and signal analyzer in software. It supports Airspy, BladeRF, HackRF, LimeSDR, PlutoSDR, Zcuadrv9009, RTL-SDR, SDRplay RSP1 and FunCube    ---   Limitations and specifcities:    * In SDRangel GUI the first Rx device set cannot be deleted. Conversely the server starts with no device sets and its number of device sets can be reduced to zero by as many calls as necessary to /sdrangel/deviceset with DELETE method.   * Preset import and export from/to file is a server only feature.   * Device set focus is a GUI only feature.   * The following channels are not implemented (status 501 is returned): ATV and DATV demodulators, Channel Analyzer NG, LoRa demodulator   * The device settings and report structures contains only the sub-structure corresponding to the device type. The DeviceSettings and DeviceReport structures documented here shows all of them but only one will be or should be present at a time   * The channel settings and report structures contains only the sub-structure corresponding to the channel type. The ChannelSettings and ChannelReport structures documented here shows all of them but only one will be or should be present at a time    ---
  *
  * OpenAPI spec version: 7.0.0
  * Contact: f4exb06@gmail.com
@@ -86,6 +86,8 @@ SWGDeviceSettings::SWGDeviceSettings() {
     m_pluto_sdr_output_settings_isSet = false;
     pluto_sdr_mimo_settings = nullptr;
     m_pluto_sdr_mimo_settings_isSet = false;
+    zcu_adrv9009_input_settings = nullptr;
+    m_zcu_adrv9009_input_settings_isSet = false;
     rtl_sdr_settings = nullptr;
     m_rtl_sdr_settings_isSet = false;
     remote_output_settings = nullptr;
@@ -186,6 +188,8 @@ SWGDeviceSettings::init() {
     m_pluto_sdr_output_settings_isSet = false;
     pluto_sdr_mimo_settings = new SWGPlutoSdrMIMOSettings();
     m_pluto_sdr_mimo_settings_isSet = false;
+    zcu_adrv9009_input_settings = new SWGZcuadrv9009InputSettings();
+    m_zcu_adrv9009_input_settings_isSet = false;
     rtl_sdr_settings = new SWGRtlSdrSettings();
     m_rtl_sdr_settings_isSet = false;
     remote_output_settings = new SWGRemoteOutputSettings();
@@ -306,6 +310,9 @@ SWGDeviceSettings::cleanup() {
     }
     if(pluto_sdr_mimo_settings != nullptr) { 
         delete pluto_sdr_mimo_settings;
+    }
+    if(zcu_adrv9009_input_settings != nullptr) {
+        delete zcu_adrv9009_input_settings;
     }
     if(rtl_sdr_settings != nullptr) { 
         delete rtl_sdr_settings;
@@ -429,6 +436,8 @@ SWGDeviceSettings::fromJsonObject(QJsonObject &pJson) {
     
     ::SWGSDRangel::setValue(&pluto_sdr_mimo_settings, pJson["plutoSdrMIMOSettings"], "SWGPlutoSdrMIMOSettings", "SWGPlutoSdrMIMOSettings");
     
+    ::SWGSDRangel::setValue(&zcu_adrv9009_input_settings, pJson["zcuadrv9009InputSettings"], "SWGZcuadrv9009InputSettings", "SWGZcuadrv9009InputSettings");
+
     ::SWGSDRangel::setValue(&rtl_sdr_settings, pJson["rtlSdrSettings"], "SWGRtlSdrSettings", "SWGRtlSdrSettings");
     
     ::SWGSDRangel::setValue(&remote_output_settings, pJson["remoteOutputSettings"], "SWGRemoteOutputSettings", "SWGRemoteOutputSettings");
@@ -565,6 +574,9 @@ SWGDeviceSettings::asJsonObject() {
     }
     if((pluto_sdr_mimo_settings != nullptr) && (pluto_sdr_mimo_settings->isSet())){
         toJsonValue(QString("plutoSdrMIMOSettings"), pluto_sdr_mimo_settings, obj, QString("SWGPlutoSdrMIMOSettings"));
+    }
+    if((zcu_adrv9009_input_settings != nullptr) && (zcu_adrv9009_input_settings->isSet())){
+        toJsonValue(QString("zcuadrv9009InputSettings"), zcu_adrv9009_input_settings, obj, QString("SWGZcuadrv9009InputSettings"));
     }
     if((rtl_sdr_settings != nullptr) && (rtl_sdr_settings->isSet())){
         toJsonValue(QString("rtlSdrSettings"), rtl_sdr_settings, obj, QString("SWGRtlSdrSettings"));
@@ -911,6 +923,16 @@ SWGDeviceSettings::setPlutoSdrMimoSettings(SWGPlutoSdrMIMOSettings* pluto_sdr_mi
     this->m_pluto_sdr_mimo_settings_isSet = true;
 }
 
+SWGZcuadrv9009InputSettings*
+SWGDeviceSettings::getZcuadrv9009InputSettings() {
+    return zcu_adrv9009_input_settings;
+}
+void
+SWGDeviceSettings::setZcuadrv9009InputSettings(SWGZcuadrv9009InputSettings* zcu_adrv9009_input_settings) {
+    this->zcu_adrv9009_input_settings = zcu_adrv9009_input_settings;
+    this->m_zcu_adrv9009_input_settings_isSet = true;
+}
+
 SWGRtlSdrSettings*
 SWGDeviceSettings::getRtlSdrSettings() {
     return rtl_sdr_settings;
@@ -1171,6 +1193,9 @@ SWGDeviceSettings::isSet(){
             isObjectUpdated = true; break;
         }
         if(pluto_sdr_mimo_settings && pluto_sdr_mimo_settings->isSet()){
+            isObjectUpdated = true; break;
+        }
+        if(zcu_adrv9009_input_settings && zcu_adrv9009_input_settings->isSet()){
             isObjectUpdated = true; break;
         }
         if(rtl_sdr_settings && rtl_sdr_settings->isSet()){

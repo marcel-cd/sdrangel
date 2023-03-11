@@ -43,6 +43,8 @@ DeviceReport:
       $ref: "http://swgserver:8081/api/swagger/include/PlutoSdr.yaml#/PlutoSdrOutputReport"
     plutoSdrMIMOReport:
       $ref: "http://swgserver:8081/api/swagger/include/PlutoSdr.yaml#/PlutoSdrMIMOReport"
+    zcuadrv9009InputReport:
+      $ref: "http://swgserver:8081/api/swagger/include/Zcuadrv9009.yaml#/Zcuadrv9009InputReport"
     rtlSdrReport:
       $ref: "http://swgserver:8081/api/swagger/include/RtlSdr.yaml#/RtlSdrReport"
     remoteOutputReport:

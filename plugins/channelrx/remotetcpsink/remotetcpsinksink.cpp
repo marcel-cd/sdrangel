@@ -337,6 +337,7 @@ RemoteTCPProtocol::Device RemoteTCPSinkSink::getDevice()
             {"LocalInput", RemoteTCPProtocol::LOCAL_INPUT},
             {"Perseus", RemoteTCPProtocol::PERSEUS},
             {"PlutoSDR", RemoteTCPProtocol::PLUTO_SDR},
+            {"Zcuadrv9009", RemoteTCPProtocol::ZCU_ADRV9009},
             {"RemoteInput", RemoteTCPProtocol::REMOTE_INPUT},
             {"RemoteTCPInput", RemoteTCPProtocol::REMOTE_TCP_INPUT},
             {"RTLSDR", RemoteTCPProtocol::RTLSDR_R820T},

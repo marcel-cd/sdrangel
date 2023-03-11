@@ -43,6 +43,8 @@ DeviceReport:
       $ref: "/doc/swagger/include/PlutoSdr.yaml#/PlutoSdrOutputReport"
     plutoSdrMIMOReport:
       $ref: "/doc/swagger/include/PlutoSdr.yaml#/PlutoSdrMIMOReport"
+    zcuadrv9009InputReport:
+      $ref: "/doc/swagger/include/Zcuadrv9009.yaml#/Zcuadrv9009InputReport"
     rtlSdrReport:
       $ref: "/doc/swagger/include/RtlSdr.yaml#/RtlSdrReport"
     remoteOutputReport:

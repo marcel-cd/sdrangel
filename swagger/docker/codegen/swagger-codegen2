@@ -1,0 +1,2 @@
+#!/bin/sh
+java -jar /opt/install/sdrangel/swagger/swagger-codegen-cli.jar ${*}

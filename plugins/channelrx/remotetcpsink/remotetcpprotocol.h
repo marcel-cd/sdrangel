@@ -50,6 +50,7 @@ public:
         LOCAL_INPUT,
         PERSEUS,
         PLUTO_SDR,
+        ZCU_ADRV9009,
         REMOTE_INPUT,
         REMOTE_TCP_INPUT,
         SDRPLAY_1,

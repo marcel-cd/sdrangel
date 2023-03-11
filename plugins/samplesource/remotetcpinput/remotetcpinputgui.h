@@ -145,6 +145,8 @@ private:
     static const DeviceGains m_sdrplayV3Gains;
     static const DeviceGains::GainRange m_plutoGainRange;
     static const DeviceGains m_plutoGains;
+    static const DeviceGains::GainRange m_zcuadrv9009GainRange;
+    static const DeviceGains m_zcuadrv9009Gains;
     static const DeviceGains::GainRange m_usrpGainRange;
     static const DeviceGains m_usrpGains;
     static const DeviceGains::GainRange m_xtrxGainRange;

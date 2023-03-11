@@ -66,6 +66,8 @@ DeviceSettings:
       $ref: "http://swgserver:8081/api/swagger/include/PlutoSdr.yaml#/PlutoSdrOutputSettings"
     plutoSdrMIMOSettings:
       $ref: "http://swgserver:8081/api/swagger/include/PlutoSdr.yaml#/PlutoSdrMIMOSettings"
+    zcuadrv9009InputSettings:
+      $ref: "http://swgserver:8081/api/swagger/include/Zcuadrv9009.yaml#/Zcuadrv9009InputSettings"
     rtlSdrSettings:
       $ref: "http://swgserver:8081/api/swagger/include/RtlSdr.yaml#/RtlSdrSettings"
     remoteOutputSettings:
